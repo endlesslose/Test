@@ -71,29 +71,19 @@ public class StringCalculator {
 
 
     public static String addition(String input) throws Exception {
-        String result;
         String[] parts = input.split(" \\+ ");
         if (parts[0].length() > 10 || parts[1].length() > 10){
             throw new Exception("Подаваемая строка длиннее 10ти символов!");
         }
-        result = (parts[0] + parts[1]);
-        return result;
+        else return (parts[0] + parts[1]);
     }
 
     public static String subtraction(String input) throws Exception {
-        StringBuilder sb = new StringBuilder();
         String[] parts = input.split(" - ");
         if (parts[0].length() > 10 || parts[1].length() > 10){
             throw new Exception("Подаваемая строка длиннее 10ти символов!");
         }
-        int index = parts[0].indexOf(parts[1]);
-        if (parts[0].contains(parts[1])){
-            for (int i = 0; i < index; i++) {
-                sb.append(input.charAt(i));
-            }
-        }
-        else sb.append(parts[0]);
-        return sb.toString();
+        else return parts[0].replace(parts[1], "");
     }
 
     public static String multiplication(String input) throws Exception {
@@ -129,5 +119,4 @@ public class StringCalculator {
         }
         return sb.toString();
     }
-
 }
