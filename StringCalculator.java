@@ -49,7 +49,6 @@ public class StringCalculator {
             if (!input.contains("\" * ")) {
                 throw new Exception("Умножать можно только строку на число!");
             } else return;
-
         }
         if (input.contains(" / ")) {
             if (!input.contains("\" / ")) {
@@ -92,6 +91,9 @@ public class StringCalculator {
         if (parts[0].length() > 10){
             throw new Exception("Подаваемая строка длиннее 10ти символов!");
         }
+        if (Float.parseFloat(parts[1]) % 1 != 0){
+            throw new Exception("Множителем может быть только целое число!");
+        }
         if (Integer.parseInt(parts[1]) > 10){
             throw new Exception("Множитель больше 10ти!");
         }
@@ -110,8 +112,14 @@ public class StringCalculator {
         if (parts[0].length() > 10){
             throw new Exception("Подаваемая строка длиннее 10ти символов!");
         }
+        if (Float.parseFloat(parts[1]) % 1 != 0){
+            throw new Exception("Делителем может быть только целое число!");
+        }
         if (Integer.parseInt(parts[1]) > 10){
             throw new Exception("Делитель больше 10ти!");
+        }
+        if (Integer.parseInt(parts[1]) > parts[0].length()){
+            throw new Exception("Делитель больше делимой строки!");
         }
         int x = parts[0].length() / Integer.parseInt(parts[1]);
         for (int i = 0; i < x; i++) {
